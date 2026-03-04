@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block title %} Dashboard {% endblock %} 
+{% block body_class %} sidebar-mini {% endblock body_class %} 
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="/static/assets/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/static/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="/static/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="/static/assets/plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="/static/assets/css/adminlte.min.css">
+  <link rel="stylesheet" href="/static/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="/static/assets/plugins/daterangepicker/daterangepicker.css">``
+  <link rel="stylesheet" href="/static/assets/plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">YOLOv8 Dashboard</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        
+        <!-- Upload Section -->
+        <section class="col-lg-6 connectedSortable">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-upload mr-1"></i> Upload</h3>
+            </div>
+            <div class="card-body">
+              <form action="/detect" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="inputfile">Upload Image or Video</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputfile" name="file" required>
+                      <label class="custom-file-label" for="inputfile">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit">Upload</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Result Section -->
+        <section class="col-lg-6 connectedSortable">
+          <div class="card card-success card-outline">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-image mr-1"></i> Results</h3>
+            </div>
+            <div class="card-body text-center">
+              {% if result_image %}
+                <h3>Detection Result</h3>
+                <img src="{{ url_for('result_file', filename=result_image) }}" class="img-fluid" style="max-height: 600px; width: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+              {% elif message %}
+                <div class="alert alert-danger">{{ message }}</div>
+              {% else %}
+                <p class="text-muted">Upload an image to see results here.</p>
+              {% endif %}
+              
+              <!-- Video Feed logic if needed, simple toggle or check -->
+              <div id="video-container" style="display:none;">
+                  <img src="{{ url_for('video_feed') }}" class="img-fluid" style="width: 100%;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbox -->
+  <div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Ask about endangered species!</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+        </div>
+    </div>
+  </div>
+
+  <script>
+      $SCRIPT_ROOT = {{ request.script_root|tojson }};
+  </script>
+  <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+  
+  <!-- Custom File Input Label Fix -->
+  <script>
+    document.querySelector('.custom-file-input').addEventListener('change', function(e){
+      var fileName = document.getElementById("inputfile").files[0].name;
+      var nextSibling = e.target.nextElementSibling;
+      nextSibling.innerText = fileName;
+    })
+  </script>
+
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+
+  <script src="/static/assets/plugins/jquery/jquery.min.js"></script>
+  <script src="/static/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/plugins/chart.js/Chart.min.js"></script>
+  <script src="/static/assets/plugins/sparklines/sparkline.js"></script>
+  <script src="/static/assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="/static/assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <script src="/static/assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+  <script src="/static/assets/plugins/moment/moment.min.js"></script>
+  <script src="/static/assets/plugins/daterangepicker/daterangepicker.js"></script>
+  <script src="/static/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="/static/assets/plugins/summernote/summernote-bs4.min.js"></script>
+  <script src="/static/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <script src="/static/assets/js/adminlte.js"></script>
+  <script src="/static/assets/js/pages/dashboard.js"></script>
+  <script src="/static/assets/js/demo.js"></script>
+
+{% endblock javascripts %}

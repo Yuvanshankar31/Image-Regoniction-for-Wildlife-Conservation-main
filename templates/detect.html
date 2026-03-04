@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife AI - Detection & Conservation</title>
+    <meta name="description" content="AI-powered wildlife detection and conservation assistant">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #3b82f6;
+            --dark: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 15px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            animation: gradientShift 15s ease infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-30px, -30px);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header - Compact */
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 5px;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        /* Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 20px;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* Upload Section */
+        .upload-area {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .upload-area.dragover {
+            border-color: var(--primary);
+            background: rgba(16, 185, 129, 0.1);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        .upload-text {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .upload-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        /* Preview */
+        .preview-section {
+            display: none;
+            margin-top: 18px;
+        }
+
+        .preview-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            font-size: 0.85rem;
+        }
+
+        .preview-img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Results Section - LARGER */
+        .results-area {
+            min-height: 400px;
+        }
+
+        .results-placeholder {
+            text-align: center;
+            opacity: 0.6;
+            padding: 60px 20px;
+        }
+
+        .results-placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            opacity: 0.4;
+        }
+
+        .results-content {
+            display: none;
+        }
+
+        .results-content.active {
+            display: block;
+        }
+
+        .result-img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            border: 4px solid rgba(16, 185, 129, 0.2);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Alert */
+        .alert {
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: none;
+            font-size: 0.9rem;
+        }
+
+        .alert.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-10px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #6ee7b7;
+        }
+
+        /* Animal Info Cards - NEW FEATURE */
+        .animal-info {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+        }
+
+        .animal-info.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .animal-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .conservation-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-endangered {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .status-vulnerable {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fcd34d;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .status-safe {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 8px 35px rgba(16, 185, 129, 0.6);
+            }
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-window.active {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-header {
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .chat-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .chat-info p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 18px;
+            overflow-y: auto;
+            background: var(--dark);
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .message {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 8px;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-content {
+            max-width: 75%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .message.bot .message-content {
+            background: var(--card-bg);
+            color: var(--text);
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .chat-input-area {
+            padding: 15px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .chat-send {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .chat-send:hover {
+            transform: scale(1.05);
+        }
+
+        /* Video Container */
+        #videoContainer {
+            display: none;
+        }
+
+        #videoContainer.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .upload-area {
+                padding: 30px 15px;
+            }
+
+            .chat-window {
+                width: 90vw;
+                right: 5vw;
+            }
+
+            .chatbot-container {
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .main-grid {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🦁</span>
+                <h1>Wildlife AI</h1>
+            </div>
+            <p class="tagline">AI-Powered Wildlife Detection & Conservation</p>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Upload Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📸</span>
+                    <h2 class="card-title">Upload & Detect</h2>
+                </div>
+
+                <div class="alert alert-error" id="errorAlert"></div>
+                <div class="alert alert-success" id="successAlert"></div>
+
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📁</div>
+                        <div class="upload-text">Click or drag to upload</div>
+                        <div class="upload-hint">JPG, PNG, MP4 • Max 50MB</div>
+                        <input type="file" id="fileInput" name="file" accept="image/*,video/mp4">
+                    </div>
+
+                    <div class="preview-section" id="previewSection">
+                        <div class="file-info">
+                            <span id="fileName"></span>
+                            <span id="fileSize"></span>
+                        </div>
+                        <img id="previewImg" class="preview-img" style="display:none;">
+                        <button type="submit" class="btn btn-primary">
+                            <span>🔍</span>
+                            <span>Detect Wildlife</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="clearBtn">
+                            <span>🗑️</span>
+                            <span>Clear</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Results Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">🎯</span>
+                    <h2 class="card-title">Detection Results</h2>
+                </div>
+
+                <div class="results-area">
+                    <div class="results-placeholder" id="resultsPlaceholder">
+                        <div class="results-placeholder-icon">🔬</div>
+                        <p>Upload media to see detection results</p>
+                    </div>
+
+                    <div class="loading" id="loadingSpinner">
+                        <div class="spinner"></div>
+                        <p>Analyzing wildlife...</p>
+                    </div>
+
+                    <div class="results-content" id="resultsContent">
+                        <img id="resultImg" class="result-img" style="display:none;">
+                        <div id="videoContainer">
+                            <img src="/video_feed" class="result-img">
+                        </div>
+
+                        <!-- Animal Information Section -->
+                        <div class="animal-info" id="animalInfo">
+                            <h3>
+                                <span>🦁</span>
+                                <span id="animalName">Detected Animal</span>
+                            </h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <div class="info-label">Conservation Status</div>
+                                    <div class="info-value">
+                                        <span class="conservation-status" id="conservationStatus">Unknown</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Scientific Name</div>
+                                    <div class="info-value" id="scientificName">-</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Habitat</div>
+                                    <div class="info-value" id="habitat">-</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Population Trend</div>
+                                    <div class="info-value" id="population">-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chat-button" id="chatToggle">💬</button>
+
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-avatar">🦜</div>
+                <div class="chat-info">
+                    <h3>Wildlife Assistant</h3>
+                    <p>Ask about endangered species</p>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Hello! I'm your wildlife conservation assistant. Ask me anything about endangered species! 🌿
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Ask about wildlife...">
+                <button class="chat-send" id="chatSend">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animal Database
+        const animalDatabase = {
+            'lion': {
+                name: 'African Lion',
+                scientific: 'Panthera leo',
+                status: 'vulnerable',
+                habitat: 'Grasslands, Savannas',
+                population: 'Decreasing'
+            },
+            'tiger': {
+                name: 'Bengal Tiger',
+                scientific: 'Panthera tigris',
+                status: 'endangered',
+                habitat: 'Tropical Forests',
+                population: 'Decreasing'
+            },
+            'elephant': {
+                name: 'African Elephant',
+                scientific: 'Loxodonta africana',
+                status: 'endangered',
+                habitat: 'Forests, Savannas',
+                population: 'Decreasing'
+            },
+            'rhino': {
+                name: 'White Rhinoceros',
+                scientific: 'Ceratotherium simum',
+                status: 'endangered',
+                habitat: 'Grasslands',
+                population: 'Stable'
+            },
+            'panda': {
+                name: 'Giant Panda',
+                scientific: 'Ailuropoda melanoleuca',
+                status: 'vulnerable',
+                habitat: 'Bamboo Forests',
+                population: 'Increasing'
+            },
+            'leopard': {
+                name: 'Snow Leopard',
+                scientific: 'Panthera uncia',
+                status: 'vulnerable',
+                habitat: 'Mountain Ranges',
+                population: 'Decreasing'
+            },
+            'bear': {
+                name: 'Polar Bear',
+                scientific: 'Ursus maritimus',
+                status: 'vulnerable',
+                habitat: 'Arctic Ice',
+                population: 'Decreasing'
+            },
+            'gorilla': {
+                name: 'Mountain Gorilla',
+                scientific: 'Gorilla beringei',
+                status: 'endangered',
+                habitat: 'Mountain Forests',
+                population: 'Increasing'
+            }
+        };
+
+        // Upload functionality
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const uploadForm = document.getElementById('uploadForm');
+        const previewSection = document.getElementById('previewSection');
+        const previewImg = document.getElementById('previewImg');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const clearBtn = document.getElementById('clearBtn');
+        const resultsPlaceholder = document.getElementById('resultsPlaceholder');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const resultsContent = document.getElementById('resultsContent');
+        const resultImg = document.getElementById('resultImg');
+        const videoContainer = document.getElementById('videoContainer');
+        const errorAlert = document.getElementById('errorAlert');
+        const successAlert = document.getElementById('successAlert');
+        const animalInfo = document.getElementById('animalInfo');
+
+        let selectedFile = null;
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            if (e.dataTransfer.files.length > 0) {
+                handleFileSelect(e.dataTransfer.files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            selectedFile = file;
+
+            const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'video/mp4'];
+            if (!validTypes.includes(file.type)) {
+                showError('Invalid file type. Please upload JPG, PNG, or MP4.');
+                return;
+            }
+
+            if (file.size > 50 * 1024 * 1024) {
+                showError('File too large. Maximum size is 50MB.');
+                return;
+            }
+
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            previewSection.classList.add('active');
+
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImg.src = e.target.result;
+                    previewImg.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewImg.style.display = 'none';
+            }
+
+            hideError();
+        }
+
+        clearBtn.addEventListener('click', () => {
+            selectedFile = null;
+            fileInput.value = '';
+            previewSection.classList.remove('active');
+            previewImg.style.display = 'none';
+            hideError();
+            hideSuccess();
+        });
+
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!selectedFile) {
+                showError('Please select a file first.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+
+            resultsPlaceholder.style.display = 'none';
+            resultsContent.classList.remove('active');
+            animalInfo.classList.remove('active');
+            loadingSpinner.classList.add('active');
+            hideError();
+            hideSuccess();
+
+            try {
+                const response = await fetch('/detect', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Detection failed');
+                }
+
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                loadingSpinner.classList.remove('active');
+                resultsContent.classList.add('active');
+
+                if (data.result_image) {
+                    resultImg.src = `/result/${data.result_image}`;
+                    resultImg.style.display = 'block';
+                    videoContainer.classList.remove('active');
+                    showSuccess('✅ Detection complete! Wildlife identified.');
+
+                    // Show animal information
+                    displayAnimalInfo(selectedFile.name);
+                } else if (data.video) {
+                    videoContainer.classList.add('active');
+                    resultImg.style.display = 'none';
+                    showSuccess('✅ Video processing complete!');
+                }
+
+            } catch (error) {
+                loadingSpinner.classList.remove('active');
+                resultsPlaceholder.style.display = 'block';
+                showError('❌ Detection failed: ' + error.message);
+            }
+        });
+
+        function displayAnimalInfo(filename) {
+            // Try to detect animal from filename or use default
+            let detectedAnimal = null;
+            const lowerFilename = filename.toLowerCase();
+
+            for (let animal in animalDatabase) {
+                if (lowerFilename.includes(animal)) {
+                    detectedAnimal = animalDatabase[animal];
+                    break;
+                }
+            }
+
+            // If no match, show generic info
+            if (!detectedAnimal) {
+                detectedAnimal = {
+                    name: 'Wildlife Species',
+                    scientific: 'Species detected',
+                    status: 'safe',
+                    habitat: 'Various habitats',
+                    population: 'Monitoring required'
+                };
+            }
+
+            document.getElementById('animalName').textContent = detectedAnimal.name;
+            document.getElementById('scientificName').textContent = detectedAnimal.scientific;
+            document.getElementById('habitat').textContent = detectedAnimal.habitat;
+            document.getElementById('population').textContent = detectedAnimal.population;
+
+            const statusElement = document.getElementById('conservationStatus');
+            statusElement.textContent = detectedAnimal.status.charAt(0).toUpperCase() + detectedAnimal.status.slice(1);
+            statusElement.className = 'conservation-status status-' + detectedAnimal.status;
+
+            animalInfo.classList.add('active');
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function showError(message) {
+            errorAlert.textContent = message;
+            errorAlert.classList.add('active');
+            setTimeout(() => hideError(), 5000);
+        }
+
+        function hideError() {
+            errorAlert.classList.remove('active');
+        }
+
+        function showSuccess(message) {
+            successAlert.textContent = message;
+            successAlert.classList.add('active');
+            setTimeout(() => hideSuccess(), 5000);
+        }
+
+        function hideSuccess() {
+            successAlert.classList.remove('active');
+        }
+
+        // Chatbot functionality
+        const chatToggle = document.getElementById('chatToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+
+        chatToggle.addEventListener('click', () => {
+            chatWindow.classList.toggle('active');
+        });
+
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            chatInput.value = '';
+
+            // Add typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typing-indicator';
+            typingDiv.innerHTML = '<div class="message-content">Typing...</div>';
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+
+                // Remove typing indicator
+                const typing = document.getElementById('typing-indicator');
+                if (typing) typing.remove();
+
+                addMessage(data.answer || 'Sorry, I could not process that.', 'bot');
+
+            } catch (error) {
+                // Remove typing indicator
+                const typing = document.getElementById('typing-indicator');
+                if (typing) typing.remove();
+
+                addMessage('Sorry, I encountered an error. Please try again.', 'bot');
+                console.error('Chat error:', error);
+            }
+        }
+
+        function addMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = text;
+
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

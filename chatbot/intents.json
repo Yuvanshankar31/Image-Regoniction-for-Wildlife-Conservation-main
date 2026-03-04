@@ -1,0 +1,828 @@
+{
+    "intents": [{
+            "tag": "endangered_species",
+            "patterns": [
+                "List of endangered species",
+                "Endangered animals",
+                "Which species are endangered?"
+            ],
+            "responses": [
+                "Here are some endangered species:\n1. Blue Whale - Endangered due to whaling and habitat loss.\n2. African Wild Dog - Endangered due to habitat fragmentation, human conflict, and infectious diseases.\n3. Orangutan - Critically endangered due to deforestation and illegal pet trade.\n4. Black Rhino - Critically endangered due to poaching for their horns.\n5. Snow Leopard - Endangered due to poaching and habitat loss.\n6. Green Sea Turtle - Endangered due to habitat loss, poaching, and pollution.\n7. Asian Elephant - Endangered due to habitat loss and human conflict.\n8. Galápagos Penguin - Endangered due to climate change and introduced predators.\n9. Saola - Critically endangered due to habitat loss and hunting.\n10. Ethiopian Wolf - Critically endangered due to habitat loss and disease."
+            ]
+        },
+        {
+            "tag": "endangered_species1",
+            "patterns": [
+                "Why are blue whales endangered?",
+                "Why are African wild dogs endangered?",
+                "Why are orangutans endangered?",
+                "Why are black rhinos endangered?",
+                "Why are snow leopards endangered?",
+                "Why are green sea turtles endangered?",
+                "Why are Asian elephants endangered?",
+                "Why are Galápagos penguins endangered?",
+                "Why are saolas endangered?",
+                "Why are Ethiopian wolves endangered?",
+                "Why are Malayan tigers endangered?",
+                "Why are mountain gorillas endangered?",
+                "Why are kakapos endangered?",
+                "Why are Siberian tigers endangered?"
+            ],
+            "responses": [
+                "Blue whales are endangered due to whaling and habitat loss.",
+                "African wild dogs are endangered due to habitat fragmentation, human conflict, and infectious diseases.",
+                "Orangutans are critically endangered due to deforestation and illegal pet trade.",
+                "Black rhinos are critically endangered due to poaching for their horns.",
+                "Snow leopards are endangered due to poaching and habitat loss.",
+                "Green sea turtles are endangered due to habitat loss, poaching, and pollution.",
+                "Asian elephants are endangered due to habitat loss and human conflict.",
+                "Galápagos penguins are endangered due to climate change and introduced predators.",
+                "Saolas are critically endangered due to habitat loss and hunting.",
+                "Ethiopian wolves are critically endangered due to habitat loss and disease.",
+                "Malayan tigers are critically endangered due to habitat loss and poaching.",
+                "Mountain gorillas are critically endangered due to habitat loss, poaching, and disease.",
+                "Kakapos are critically endangered due to habitat loss and introduced predators.",
+                "Siberian tigers are endangered due to habitat loss and poaching."
+            ]
+        },
+        {
+            "tag": "giant_panda",
+            "patterns": [
+                "Tell me about the giant panda",
+                "What do you know about giant pandas?",
+                "Can you give me facts about the giant panda?",
+                "What can you say about the giant panda?",
+                "Give me information on giant pandas",
+                "Tell me some facts about giant pandas",
+                "What is special about the giant panda?",
+                "Do you know about the giant panda?",
+                "Share details about the giant panda",
+                "Tell me interesting facts about the giant panda"
+            ],
+            "responses": [
+                "Giant pandas are native to China and are known for their distinct black and white markings. They are endangered due to habitat loss and low birth rates.",
+                "Giant pandas primarily eat bamboo and have a unique thumb to help them hold bamboo stalks.",
+                "Giant pandas have a highly developed sense of smell, which they use to find bamboo and communicate with each other.",
+                "There are only around 1,800 giant pandas left in the wild.",
+                "Giant pandas are a symbol of conservation efforts and are often used in campaigns to protect wildlife.",
+                "The giant panda's scientific name is Ailuropoda melanoleuca.",
+                "Giant pandas are classified as a vulnerable species by the IUCN.",
+                "They have a low reproductive rate, which contributes to their endangered status.",
+                "Conservation efforts for giant pandas include habitat protection and breeding programs.",
+                "Giant pandas spend most of their day eating and sleeping."
+            ]
+        },
+        {
+            "tag": "african_elephant",
+            "patterns": [
+                "Tell me about the African elephant",
+                "What do you know about African elephants?",
+                "Can you give me facts about the African elephant?",
+                "What can you say about the African elephant?",
+                "Give me information on African elephants",
+                "Tell me some facts about African elephants",
+                "What is special about the African elephant?",
+                "Do you know about the African elephant?",
+                "Share details about the African elephant",
+                "Tell me interesting facts about the African elephant"
+            ],
+            "responses": [
+                "African elephants are the largest land animals on Earth, known for their large ears and tusks.",
+                "African elephants live in sub-Saharan Africa and are classified into two species: savanna and forest elephants.",
+                "They have a trunk that is used for communication, feeding, and drinking.",
+                "African elephants are herbivores, primarily eating grasses, leaves, and fruits.",
+                "They are known for their strong family bonds and live in matriarchal groups.",
+                "African elephants can live up to 60-70 years in the wild.",
+                "The main threats to African elephants are habitat loss and poaching for their ivory tusks.",
+                "They are classified as vulnerable by the IUCN, with some populations critically endangered.",
+                "African elephants play a crucial role in their ecosystem by helping to shape their environment.",
+                "They communicate using low-frequency sounds that can travel long distances."
+            ]
+        },
+        {
+            "tag": "bald_eagle",
+            "patterns": [
+                "Tell me about the bald eagle",
+                "What do you know about bald eagles?",
+                "Can you give me facts about the bald eagle?",
+                "What can you say about the bald eagle?",
+                "Give me information on bald eagles",
+                "Tell me some facts about bald eagles",
+                "What is special about the bald eagle?",
+                "Do you know about the bald eagle?",
+                "Share details about the bald eagle",
+                "Tell me interesting facts about the bald eagle"
+            ],
+            "responses": [
+                "The bald eagle is the national bird and symbol of the United States.",
+                "Bald eagles are found near large bodies of open water with abundant food supply.",
+                "They primarily feed on fish, which they catch with their sharp talons.",
+                "Bald eagles have a wingspan of up to 7.5 feet.",
+                "They build the largest tree nests of any bird, which can be up to 13 feet deep and 8 feet wide.",
+                "Bald eagles are known for their white head and tail feathers, which contrast with their dark brown body.",
+                "They were once endangered due to DDT pesticide use but have made a significant recovery.",
+                "Bald eagles are now listed as least concern by the IUCN.",
+                "They mate for life and return to the same nesting sites each year.",
+                "Bald eagles can live up to 20-30 years in the wild."
+            ]
+        },
+        {
+            "tag": "blue_whale",
+            "patterns": [
+                "Tell me about the blue whale",
+                "What do you know about blue whales?",
+                "Can you give me facts about the blue whale?",
+                "What can you say about the blue whale?",
+                "Give me information on blue whales",
+                "Tell me some facts about blue whales",
+                "What is special about the blue whale?",
+                "Do you know about the blue whale?",
+                "Share details about the blue whale",
+                "Tell me interesting facts about the blue whale"
+            ],
+            "responses": [
+                "Blue whales are the largest animals ever known to have lived on Earth.",
+                "They can grow up to 100 feet long and weigh as much as 200 tons.",
+                "Blue whales are found in all the world's oceans except the Arctic.",
+                "Their primary diet consists of small shrimp-like animals called krill.",
+                "During feeding season, a blue whale can consume up to 4 tons of krill a day.",
+                "Blue whales communicate using loud, low-pitched moans and whines.",
+                "They are currently classified as endangered due to past whaling activities.",
+                "Blue whales can live to be 70-90 years old.",
+                "They migrate long distances between feeding and breeding grounds.",
+                "The blue whale's heart is the size of a small car and can weigh as much as 1,300 pounds."
+            ]
+        },
+        {
+            "tag": "cheetah",
+            "patterns": [
+                "Tell me about the cheetah",
+                "What do you know about cheetahs?",
+                "Can you give me facts about the cheetah?",
+                "What can you say about the cheetah?",
+                "Give me information on cheetahs",
+                "Tell me some facts about cheetahs",
+                "What is special about the cheetah?",
+                "Do you know about the cheetah?",
+                "Share details about the cheetah",
+                "Tell me interesting facts about the cheetah"
+            ],
+            "responses": [
+                "Cheetahs are the fastest land animals, capable of reaching speeds up to 70 mph.",
+                "They have distinctive black tear stripes running from the eyes to the mouth.",
+                "Cheetahs are primarily found in Africa but also in some parts of Iran.",
+                "Their diet mainly consists of small to medium-sized ungulates, such as gazelles.",
+                "Cheetahs rely on their speed and stealth to hunt rather than strength.",
+                "They have large nasal passages and lungs to increase oxygen intake during sprints.",
+                "Cheetah populations are declining due to habitat loss and human-wildlife conflict.",
+                "Cheetahs are classified as vulnerable by the IUCN.",
+                "They have a relatively low genetic diversity, making them more susceptible to diseases.",
+                "Cheetahs are solitary animals, with males often forming small groups called coalitions."
+            ]
+        },
+        {
+            "tag": "emperor_penguin",
+            "patterns": [
+                "Tell me about the emperor penguin",
+                "What do you know about emperor penguins?",
+                "Can you give me facts about the emperor penguin?",
+                "What can you say about the emperor penguin?",
+                "Give me information on emperor penguins",
+                "Tell me some facts about emperor penguins",
+                "What is special about the emperor penguin?",
+                "Do you know about the emperor penguin?",
+                "Share details about the emperor penguin",
+                "Tell me interesting facts about the emperor penguin"
+            ],
+            "responses": [
+                "Emperor penguins are the tallest and heaviest of all penguin species.",
+                "They are native to Antarctica and are well adapted to the cold environment.",
+                "Emperor penguins can dive to depths of over 1,800 feet in search of food.",
+                "Their diet mainly consists of fish, squid, and krill.",
+                "Emperor penguins are known for their unique breeding cycle, with males incubating eggs during the harsh Antarctic winter.",
+                "They huddle together for warmth, rotating to ensure everyone gets a chance to be in the warmer center.",
+                "Emperor penguins have special adaptations such as a thick layer of blubber and tightly packed feathers to keep warm.",
+                "They are excellent swimmers, capable of reaching speeds of up to 6 mph underwater.",
+                "The population of emperor penguins is currently stable, but climate change poses a significant threat to their habitat.",
+                "Emperor penguins can live up to 20 years in the wild."
+            ]
+        },
+
+
+
+        {
+            "tag": "giant_panda",
+            "patterns": [
+                "Tell me about the giant panda",
+                "What do you know about giant pandas?",
+                "Can you give me facts about the giant panda?",
+                "What can you say about the giant panda?",
+                "Give me information on giant pandas",
+                "Tell me some facts about giant pandas",
+                "What is special about the giant panda?",
+                "Do you know about the giant panda?",
+                "Share details about the giant panda",
+                "Tell me interesting facts about the giant panda"
+            ],
+            "responses": [
+                "Giant pandas are native to China and are known for their distinct black and white markings. They are endangered due to habitat loss and low birth rates.",
+                "Giant pandas primarily eat bamboo and have a unique thumb to help them hold bamboo stalks.",
+                "Giant pandas have a highly developed sense of smell, which they use to find bamboo and communicate with each other.",
+                "There are only around 1,800 giant pandas left in the wild.",
+                "Giant pandas are a symbol of conservation efforts and are often used in campaigns to protect wildlife.",
+                "The giant panda's scientific name is Ailuropoda melanoleuca.",
+                "Giant pandas are classified as a vulnerable species by the IUCN.",
+                "They have a low reproductive rate, which contributes to their endangered status.",
+                "Conservation efforts for giant pandas include habitat protection and breeding programs.",
+                "Giant pandas spend most of their day eating and sleeping."
+            ]
+        },
+        {
+            "tag": "amur_leopard",
+            "patterns": [
+                "Tell me about the Amur leopard",
+                "What do you know about Amur leopards?",
+                "Can you give me facts about the Amur leopard?",
+                "What can you say about the Amur leopard?",
+                "Give me information on Amur leopards",
+                "Tell me some facts about Amur leopards",
+                "What is special about the Amur leopard?",
+                "Do you know about the Amur leopard?",
+                "Share details about the Amur leopard",
+                "Tell me interesting facts about the Amur leopard"
+            ],
+            "responses": [
+                "Amur leopards are critically endangered due to poaching and habitat destruction.",
+                "There are fewer than 100 Amur leopards left in the wild.",
+                "Amur leopards are known for their beautiful, thick fur which helps them survive in cold climates.",
+                "They are native to the temperate forests of the Russian Far East and northern China.",
+                "Amur leopards are solitary animals and have large territories.",
+                "They are excellent climbers and can jump up to 19 feet horizontally.",
+                "Amur leopards have a diverse diet that includes deer, hares, and birds.",
+                "Conservation efforts include anti-poaching measures and habitat restoration.",
+                "Amur leopards are listed as critically endangered by the IUCN.",
+                "They have a lifespan of 10-15 years in the wild."
+            ]
+        },
+        {
+            "tag": "sumatran_tiger",
+            "patterns": [
+                "Tell me about the Sumatran tiger",
+                "What do you know about Sumatran tigers?",
+                "Can you give me facts about the Sumatran tiger?",
+                "What can you say about the Sumatran tiger?",
+                "Give me information on Sumatran tigers",
+                "Tell me some facts about Sumatran tigers",
+                "What is special about the Sumatran tiger?",
+                "Do you know about the Sumatran tiger?",
+                "Share details about the Sumatran tiger",
+                "Tell me interesting facts about the Sumatran tiger"
+            ],
+            "responses": [
+                "Sumatran tigers are critically endangered due to poaching and habitat loss.",
+                "There are fewer than 400 Sumatran tigers left in the wild.",
+                "They are the smallest subspecies of tiger, adapted to the dense forests of Sumatra.",
+                "Sumatran tigers have distinctive black stripes on their orange fur.",
+                "They are solitary animals and have large territories.",
+                "Sumatran tigers are excellent swimmers and often hunt in water.",
+                "Their diet includes deer, wild boar, and cattle.",
+                "Conservation efforts include anti-poaching measures and habitat protection.",
+                "Sumatran tigers are listed as critically endangered by the IUCN.",
+                "They have a lifespan of 10-15 years in the wild."
+            ]
+        },
+        {
+            "tag": "javan_rhino",
+            "patterns": [
+                "Tell me about the Javan rhino",
+                "What do you know about Javan rhinos?",
+                "Can you give me facts about the Javan rhino?",
+                "What can you say about the Javan rhino?",
+                "Give me information on Javan rhinos",
+                "Tell me some facts about Javan rhinos",
+                "What is special about the Javan rhino?",
+                "Do you know about the Javan rhino?",
+                "Share details about the Javan rhino",
+                "Tell me interesting facts about the Javan rhino"
+            ],
+            "responses": [
+                "Javan rhinos are critically endangered due to habitat loss and poaching.",
+                "There are fewer than 70 Javan rhinos left in the wild.",
+                "They are found only in Ujung Kulon National Park in Indonesia.",
+                "Javan rhinos have a single horn, unlike other rhino species.",
+                "They are solitary animals and have large territories.",
+                "Javan rhinos are herbivores and feed on a variety of plants.",
+                "Conservation efforts include habitat protection and anti-poaching measures.",
+                "Javan rhinos are listed as critically endangered by the IUCN.",
+                "They have a lifespan of 30-45 years in the wild.",
+                "The Javan rhino's scientific name is Rhinoceros sondaicus."
+            ]
+        },
+        {
+            "tag": "vaquita",
+            "patterns": [
+                "Tell me about the vaquita",
+                "What do you know about vaquitas?",
+                "Can you give me facts about the vaquita?",
+                "What can you say about the vaquita?",
+                "Give me information on vaquitas",
+                "Tell me some facts about vaquitas",
+                "What is special about the vaquita?",
+                "Do you know about the vaquita?",
+                "Share details about the vaquita",
+                "Tell me interesting facts about the vaquita"
+            ],
+            "responses": [
+                "Vaquitas are critically endangered due to bycatch in illegal fishing operations.",
+                "There are fewer than 10 vaquitas left in the wild.",
+                "Vaquitas are the smallest species of porpoise.",
+                "They are found only in the northern part of the Gulf of California, Mexico.",
+                "Vaquitas have a distinctive black ring around their eyes and black lips.",
+                "They are shy and elusive animals, rarely seen by humans.",
+                "Vaquitas feed on small fish and squid.",
+                "Conservation efforts include anti-poaching measures and fishing gear modifications.",
+                "Vaquitas are listed as critically endangered by the IUCN.",
+                "They have a lifespan of around 20 years."
+            ]
+        },
+        {
+            "tag": "hawksbill_turtle",
+            "patterns": [
+                "Tell me about the hawksbill turtle",
+                "What do you know about hawksbill turtles?",
+                "Can you give me facts about the hawksbill turtle?",
+                "What can you say about the hawksbill turtle?",
+                "Give me information on hawksbill turtles",
+                "Tell me some facts about hawksbill turtles",
+                "What is special about the hawksbill turtle?",
+                "Do you know about the hawksbill turtle?",
+                "Share details about the hawksbill turtle",
+                "Tell me interesting facts about the hawksbill turtle"
+            ],
+            "responses": [
+                "Hawksbill turtles are critically endangered due to illegal trade of their shells and habitat destruction.",
+                "Hawksbill turtles have a distinctive pointed beak, which gives them their name.",
+                "They are found in tropical coral reefs around the world.",
+                "Hawksbill turtles feed on sponges, sea anemones, and jellyfish.",
+                "Their shells are highly prized for making tortoiseshell items.",
+                "Hawksbill turtles play a crucial role in maintaining the health of coral reefs.",
+                "Conservation efforts include protecting nesting beaches and reducing illegal trade.",
+                "Hawksbill turtles are listed as critically endangered by the IUCN.",
+                "They have a lifespan of 30-50 years in the wild.",
+                "The hawksbill turtle's scientific name is Eretmochelys imbricata."
+            ]
+        },
+        {
+            "tag": "blue_whale",
+            "patterns": [
+                "Tell me about the blue whale",
+                "What do you know about blue whales?",
+                "Can you give me facts about the blue whale?",
+                "What can you say about the blue whale?",
+                "Give me information on blue whales",
+                "Tell me some facts about blue whales",
+                "What is special about the blue whale?",
+                "Do you know about the blue whale?",
+                "Share details about the blue whale",
+                "Tell me interesting facts about the blue whale"
+            ],
+            "responses": [
+                "Blue whales are the largest animals on Earth, but they are endangered due to whaling and habitat loss.",
+                "Blue whales can grow up to 100 feet long and weigh as much as 200 tons.",
+                "They are found in all the world's oceans except the Arctic.",
+                "Blue whales feed primarily on tiny shrimp-like animals called krill.",
+                "Their songs are the loudest of any animal, used for communication and navigation.",
+                "Blue whales can live up to 90 years or more.",
+                "Conservation efforts include international whaling bans and habitat protection.",
+                "Blue whales are listed as endangered by the IUCN.",
+                "They migrate long distances between feeding and breeding grounds.",
+                "The blue whale's scientific name is Balaenoptera musculus."
+            ]
+        },
+        {
+            "tag": "african_wild_dog",
+            "patterns": [
+                "Tell me about the African wild dog",
+                "What do you know about African wild dogs?",
+                "Can you give me facts about the African wild dog?",
+                "What can you say about the African wild dog?",
+                "Give me information on African wild dogs",
+                "Tell me some facts about African wild dogs",
+                "What is special about the African wild dog?",
+                "Do you know about the African wild dog?",
+                "Share details about the African wild dog",
+                "Tell me interesting facts about the African wild dog"
+            ],
+            "responses": [
+                "African wild dogs are endangered due to habitat fragmentation, human conflict, and infectious diseases.",
+                "They are known for their large, rounded ears and mottled coat patterns.",
+                "African wild dogs are highly social and live in packs of up to 30 individuals.",
+                "They are found in sub-Saharan Africa.",
+                "African wild dogs are skilled hunters, known for their stamina and cooperative hunting techniques.",
+                "Their scientific name is Lycaon pictus.",
+                "African wild dogs have a high success rate in hunting compared to other predators.",
+                "Conservation efforts include habitat protection and disease management.",
+                "They are listed as endangered by the IUCN.",
+                "African wild dogs communicate using a variety of vocalizations."
+            ]
+        },
+        {
+            "tag": "orangutan",
+            "patterns": [
+                "Tell me about the orangutan",
+                "What do you know about orangutans?",
+                "Can you give me facts about the orangutan?",
+                "What can you say about the orangutan?",
+                "Give me information on orangutans",
+                "Tell me some facts about orangutans",
+                "What is special about the orangutan?",
+                "Do you know about the orangutan?",
+                "Share details about the orangutan",
+                "Tell me interesting facts about the orangutan"
+            ],
+            "responses": [
+                "Orangutans are critically endangered due to deforestation and illegal pet trade.",
+                "They are found in the rainforests of Borneo and Sumatra.",
+                "Orangutans are known for their distinctive red fur and long arms.",
+                "They are highly intelligent and use tools to obtain food.",
+                "Orangutans spend most of their time in trees, where they build nests to sleep.",
+                "Their diet consists mainly of fruit, but they also eat leaves, bark, and insects.",
+                "Conservation efforts include habitat protection and rehabilitation programs.",
+                "Orangutans are listed as critically endangered by the IUCN.",
+                "They have a lifespan of 30-40 years in the wild.",
+                "The orangutan's scientific name is Pongo."
+            ]
+        },
+        {
+            "tag": "black_rhino",
+            "patterns": [
+                "Tell me about the black rhino",
+                "What do you know about black rhinos?",
+                "Can you give me facts about the black rhino?",
+                "What can you say about the black rhino?",
+                "Give me information on black rhinos",
+                "Tell me some facts about black rhinos",
+                "What is special about the black rhino?",
+                "Do you know about the black rhino?",
+                "Share details about the black rhino",
+                "Tell me interesting facts about the black rhino"
+            ],
+            "responses": [
+                "Black rhinos are critically endangered due to poaching for their horns.",
+                "They are found in eastern and southern Africa.",
+                "Black rhinos have two horns, which are made of keratin.",
+                "They are solitary animals and have large territories.",
+                "Black rhinos are herbivores and feed on a variety of plants.",
+                "Their scientific name is Diceros bicornis.",
+                "Conservation efforts include anti-poaching measures and habitat protection.",
+                "Black rhinos are listed as critically endangered by the IUCN.",
+                "They have a lifespan of 35-50 years in the wild.",
+                "Black rhinos have poor eyesight but a strong sense of smell."
+            ]
+        },
+        {
+            "tag": "snow_leopard",
+            "patterns": [
+                "Tell me about the snow leopard",
+                "What do you know about snow leopards?",
+                "Can you give me facts about the snow leopard?",
+                "What can you say about the snow leopard?",
+                "Give me information on snow leopards",
+                "Tell me some facts about snow leopards",
+                "What is special about the snow leopard?",
+                "Do you know about the snow leopard?",
+                "Share details about the snow leopard",
+                "Tell me interesting facts about the snow leopard"
+            ],
+            "responses": [
+                "Snow leopards are endangered due to poaching and habitat loss.",
+                "They live in the mountains of Central and South Asia.",
+                "Snow leopards have thick fur and long tails to keep warm in cold climates.",
+                "They are solitary animals and have large territories.",
+                "Snow leopards are known for their ability to leap long distances.",
+                "Their diet includes wild sheep, goats, and smaller mammals.",
+                "Conservation efforts include anti-poaching measures and habitat protection.",
+                "Snow leopards are listed as endangered by the IUCN.",
+                "They have a lifespan of 10-12 years in the wild.",
+                "The snow leopard's scientific name is Panthera uncia."
+            ]
+        },
+        {
+            "tag": "green_sea_turtle",
+            "patterns": [
+                "Tell me about the green sea turtle",
+                "What do you know about green sea turtles?",
+                "Can you give me facts about the green sea turtle?",
+                "What can you say about the green sea turtle?",
+                "Give me information on green sea turtles",
+                "Tell me some facts about green sea turtles",
+                "What is special about the green sea turtle?",
+                "Do you know about the green sea turtle?",
+                "Share details about the green sea turtle",
+                "Tell me interesting facts about the green sea turtle"
+            ],
+            "responses": [
+                "Green sea turtles are endangered due to habitat loss, poaching, and pollution.",
+                "They are found in tropical and subtropical seas around the world.",
+                "Green sea turtles are named for the green color of their fat, which comes from their herbivorous diet.",
+                "They migrate long distances between feeding grounds and nesting beaches.",
+                "Green sea turtles can live up to 80 years or more.",
+                "Their diet consists mainly of seagrasses and algae.",
+                "Conservation efforts include protecting nesting beaches and reducing bycatch.",
+                "Green sea turtles are listed as endangered by the IUCN.",
+                "They play a crucial role in maintaining the health of seagrass beds.",
+                "The green sea turtle's scientific name is Chelonia mydas."
+            ]
+        },
+        {
+            "tag": "asian_elephant",
+            "patterns": [
+                "Tell me about the Asian elephant",
+                "What do you know about Asian elephants?",
+                "Can you give me facts about the Asian elephant?",
+                "What can you say about the Asian elephant?",
+                "Give me information on Asian elephants",
+                "Tell me some facts about Asian elephants",
+                "What is special about the Asian elephant?",
+                "Do you know about the Asian elephant?",
+                "Share details about the Asian elephant",
+                "Tell me interesting facts about the Asian elephant"
+            ],
+            "responses": [
+                "Asian elephants are endangered due to habitat loss and human conflict.",
+                "They are smaller than African elephants and have smaller ears.",
+                "Asian elephants are found in South and Southeast Asia.",
+                "They are highly social and live in matriarchal herds.",
+                "Asian elephants are known for their intelligence and memory.",
+                "Their diet consists mainly of grasses, fruits, and bark.",
+                "Conservation efforts include habitat protection and anti-poaching measures.",
+                "Asian elephants are listed as endangered by the IUCN.",
+                "They have a lifespan of 60-70 years in the wild.",
+                "The Asian elephant's scientific name is Elephas maximus."
+            ]
+        },
+        {
+            "tag": "galapagos_penguin",
+            "patterns": [
+                "Tell me about the Galápagos penguin",
+                "What do you know about Galápagos penguins?",
+                "Can you give me facts about the Galápagos penguin?",
+                "What can you say about the Galápagos penguin?",
+                "Give me information on Galápagos penguins",
+                "Tell me some facts about Galápagos penguins",
+                "What is special about the Galápagos penguin?",
+                "Do you know about the Galápagos penguin?",
+                "Share details about the Galápagos penguin",
+                "Tell me interesting facts about the Galápagos penguin"
+            ],
+            "responses": [
+                "Galápagos penguins are endangered due to climate change and introduced predators.",
+                "They are the only penguin species found north of the equator.",
+                "Galápagos penguins are found on the Galápagos Islands in Ecuador.",
+                "They are small, reaching about 19 inches in height.",
+                "Galápagos penguins feed on small fish and crustaceans.",
+                "They are highly adapted to the warm climate of the Galápagos.",
+                "Conservation efforts include habitat protection and predator control.",
+                "Galápagos penguins are listed as endangered by the IUCN.",
+                "They have a lifespan of 15-20 years in the wild.",
+                "The Galápagos penguin's scientific name is Spheniscus mendiculus."
+            ]
+        },
+        {
+            "tag": "saola",
+            "patterns": [
+                "Tell me about the saola",
+                "What do you know about saolas?",
+                "Can you give me facts about the saola?",
+                "What can you say about the saola?",
+                "Give me information on saolas",
+                "Tell me some facts about saolas",
+                "What is special about the saola?",
+                "Do you know about the saola?",
+                "Share details about the saola",
+                "Tell me interesting facts about the saola"
+            ],
+            "responses": [
+                "The saola is critically endangered due to habitat loss and hunting.",
+                "It is also known as the 'Asian unicorn' due to its rarity.",
+                "The saola is found in the Annamite Mountains of Laos and Vietnam.",
+                "It was first discovered by scientists in 1992.",
+                "The saola has long, straight horns and a distinctive white facial marking.",
+                "Saolas are shy and elusive, making them difficult to study.",
+                "Conservation efforts include habitat protection and anti-poaching measures.",
+                "Saolas are listed as critically endangered by the IUCN.",
+                "Their diet consists mainly of leaves, bushes, and grasses.",
+                "The saola's scientific name is Pseudoryx nghetinhensis."
+            ]
+        },
+        {
+            "tag": "indian_garajon",
+            "patterns": [
+                "Tell me about the Indian garajon",
+                "What do you know about Indian garajons?",
+                "Can you give me facts about the Indian garajon?",
+                "What can you say about the Indian garajon?",
+                "Give me information on Indian garajons",
+                "Tell me some facts about Indian garajons",
+                "What is special about the Indian garajon?",
+                "Do you know about the Indian garajon?",
+                "Share details about the Indian garajon",
+                "Tell me interesting facts about the Indian garajon"
+            ],
+            "responses": [
+                "The Indian garajon is a lesser-known endangered species native to South Asia.",
+                "Indian garajons are primarily threatened by habitat destruction and hunting.",
+                "They are known for their distinctive elongated snouts.",
+                "Indian garajons live in dense forests and grasslands.",
+                "Their diet includes small mammals, birds, and insects.",
+                "Conservation efforts include habitat preservation and anti-poaching measures.",
+                "Indian garajons have a unique vocalization used for communication.",
+                "They are listed as endangered by the IUCN.",
+                "Indian garajons are solitary animals and have large territories.",
+                "Their scientific name is Garajonus indicus."
+            ]
+        },
+        {
+            "tag": "ethiopian_wolf",
+            "patterns": [
+                "Tell me about the Ethiopian wolf",
+                "What do you know about Ethiopian wolves?",
+                "Can you give me facts about the Ethiopian wolf?",
+                "What can you say about the Ethiopian wolf?",
+                "Give me information on Ethiopian wolves",
+                "Tell me some facts about Ethiopian wolves",
+                "What is special about the Ethiopian wolf?",
+                "Do you know about the Ethiopian wolf?",
+                "Share details about the Ethiopian wolf",
+                "Tell me interesting facts about the Ethiopian wolf"
+            ],
+            "responses": [
+                "The Ethiopian wolf is critically endangered due to habitat loss and disease.",
+                "There are fewer than 500 Ethiopian wolves left in the wild.",
+                "They are found in the Ethiopian highlands.",
+                "Ethiopian wolves have a distinctive reddish coat and long legs.",
+                "They primarily feed on rodents, especially giant mole-rats.",
+                "Ethiopian wolves live in social packs but hunt alone.",
+                "Conservation efforts include habitat protection and disease management.",
+                "Ethiopian wolves are listed as endangered by the IUCN.",
+                "They are also known as the Simien jackal or Abyssinian wolf.",
+                "Their scientific name is Canis simensis."
+            ]
+        },
+        {
+            "tag": "malayan_tiger",
+            "patterns": [
+                "Tell me about the Malayan tiger",
+                "What do you know about Malayan tigers?",
+                "Can you give me facts about the Malayan tiger?",
+                "What can you say about the Malayan tiger?",
+                "Give me information on Malayan tigers",
+                "Tell me some facts about Malayan tigers",
+                "What is special about the Malayan tiger?",
+                "Do you know about the Malayan tiger?",
+                "Share details about the Malayan tiger",
+                "Tell me interesting facts about the Malayan tiger"
+            ],
+            "responses": [
+                "The Malayan tiger is critically endangered due to habitat loss and poaching.",
+                "There are fewer than 300 Malayan tigers left in the wild.",
+                "They are found in the tropical forests of the Malay Peninsula.",
+                "Malayan tigers have distinctive black stripes on their orange coats.",
+                "They are solitary and territorial animals.",
+                "Malayan tigers primarily feed on deer, wild boar, and other small mammals.",
+                "Conservation efforts include anti-poaching measures and habitat protection.",
+                "Malayan tigers are listed as critically endangered by the IUCN.",
+                "They are excellent swimmers and often hunt in water.",
+                "Their scientific name is Panthera tigris jacksoni."
+            ]
+        },
+        {
+            "tag": "mountain_gorilla",
+            "patterns": [
+                "Tell me about the mountain gorilla",
+                "What do you know about mountain gorillas?",
+                "Can you give me facts about the mountain gorilla?",
+                "What can you say about the mountain gorilla?",
+                "Give me information on mountain gorillas",
+                "Tell me some facts about mountain gorillas",
+                "What is special about the mountain gorilla?",
+                "Do you know about the mountain gorilla?",
+                "Share details about the mountain gorilla",
+                "Tell me interesting facts about the mountain gorilla"
+            ],
+            "responses": [
+                "Mountain gorillas are critically endangered due to habitat loss, poaching, and disease.",
+                "There are around 1,000 mountain gorillas left in the wild.",
+                "They are found in the forests of the Virunga Mountains and Bwindi Impenetrable National Park.",
+                "Mountain gorillas have thick fur to help them survive in cold mountain climates.",
+                "They live in social groups led by a dominant silverback male.",
+                "Mountain gorillas primarily feed on leaves, shoots, and stems.",
+                "Conservation efforts include habitat protection and anti-poaching measures.",
+                "Mountain gorillas are listed as endangered by the IUCN.",
+                "They have a lifespan of around 35 years in the wild.",
+                "Their scientific name is Gorilla beringei beringei."
+            ]
+        },
+        {
+            "tag": "kakapo",
+            "patterns": [
+                "Tell me about the kakapo",
+                "What do you know about kakapos?",
+                "Can you give me facts about the kakapo?",
+                "What can you say about the kakapo?",
+                "Give me information on kakapos",
+                "Tell me some facts about kakapos",
+                "What is special about the kakapo?",
+                "Do you know about the kakapo?",
+                "Share details about the kakapo",
+                "Tell me interesting facts about the kakapo"
+            ],
+            "responses": [
+                "The kakapo is critically endangered due to habitat loss and introduced predators.",
+                "There are fewer than 250 kakapos left in the wild.",
+                "They are native to New Zealand.",
+                "Kakapos are nocturnal and flightless parrots.",
+                "They have a distinctive green plumage and a strong, musky odor.",
+                "Kakapos have a lifespan of up to 90 years.",
+                "Conservation efforts include predator control and breeding programs.",
+                "Kakapos are listed as critically endangered by the IUCN.",
+                "They feed on a variety of plant materials, including leaves, fruits, and seeds.",
+                "Their scientific name is Strigops habroptilus."
+            ]
+        },
+        {
+            "tag": "siberian_tiger",
+            "patterns": [
+                "Tell me about the Siberian tiger",
+                "What do you know about Siberian tigers?",
+                "Can you give me facts about the Siberian tiger?",
+                "What can you say about the Siberian tiger?",
+                "Give me information on Siberian tigers",
+                "Tell me some facts about Siberian tigers",
+                "What is special about the Siberian tiger?",
+                "Do you know about the Siberian tiger?",
+                "Share details about the Siberian tiger",
+                "Tell me interesting facts about the Siberian tiger"
+            ],
+            "responses": [
+                "The Siberian tiger is endangered due to habitat loss and poaching.",
+                "There are around 500-600 Siberian tigers left in the wild.",
+                "They are the largest tiger subspecies, found in the forests of Russia and China.",
+                "Siberian tigers have thick fur and a layer of fat to keep them warm in cold climates.",
+                "They are solitary and have large territories.",
+                "Siberian tigers primarily feed on deer, wild boar, and other large mammals.",
+                "Conservation efforts include anti-poaching measures and habitat protection.",
+                "Siberian tigers are listed as endangered by the IUCN.",
+                "They can live up to 20-25 years in the wild.",
+                "Their scientific name is Panthera tigris altaica."
+            ]
+        },
+        {
+            "tag": "north_atlantic_right_whale",
+            "patterns": [
+                "Tell me about the North Atlantic right whale",
+                "What do you know about North Atlantic right whales?",
+                "Can you give me facts about the North Atlantic right whale?",
+                "What can you say about the North Atlantic right whale?",
+                "Give me information on North Atlantic right whales",
+                "Tell me some facts about North Atlantic right whales",
+                "What is special about the North Atlantic right whale?",
+                "Do you know about the North Atlantic right whale?",
+                "Share details about the North Atlantic right whale",
+                "Tell me interesting facts about the North Atlantic right whale"
+            ],
+            "responses": [
+                "North Atlantic right whales are critically endangered due to entanglement in fishing gear and ship strikes.",
+                "They are one of the rarest large whale species, with fewer than 400 individuals remaining.",
+                "North Atlantic right whales are found in the coastal waters of the North Atlantic Ocean.",
+                "They are filter feeders, primarily feeding on zooplankton.",
+                "North Atlantic right whales are known for their V-shaped blow and lack of dorsal fin.",
+                "Their historical population was decimated by whaling, and they have been slow to recover.",
+                "Conservation efforts include efforts to reduce ship strikes and implement fishing gear modifications.",
+                "North Atlantic right whales are listed as critically endangered by the IUCN.",
+                "They have a lifespan of up to 70 years.",
+                "Their scientific name is Eubalaena glacialis."
+            ]
+        },
+
+
+
+
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi", "Hey",
+                "How are you",
+                "Is anyone there?",
+                "Hello",
+                "Good day"
+            ],
+            "responses": [
+                "Hey :-)",
+                "Hello, thanks for visiting",
+                "Hi there, what can I do for you?",
+                "Hi there, how can I help?"
+            ]
+        }
+    ]
+}
